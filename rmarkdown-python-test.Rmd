@@ -1,0 +1,35 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+library(reticulate)
+# Set the path to the environment youre using - this can be modified
+# Works - use_python("C:\\Program Files\\ArcGIS\\Pro\\bin\\Python\\envs\\arcgispro-py3")
+#use_condaenv('C:\\Program Files\\ArcGIS\\Pro\\bin\\Python\\envs\\arcgispro-py3')
+# doesnt work - use_condaenv("arcgispro-py3") - must be full path
+# doesnt work use_virtualenv('C:\\Program Files\\ArcGIS\\Pro\\bin\\Python\\envs\\arcgispro-py3')
+
+
+# the non ArcGIS conda env I created for py4web
+use_condaenv('C:\\Users\\chris\\.conda\\envs\\py4web')
+```
+
+```{python}
+import numpy as np
+import pandas as pd
+df2 = pd.DataFrame(
+    {
+        "A": 1.0,
+        "B": pd.Timestamp("20130102"),
+        "C": pd.Series(1, index=list(range(4)), dtype="float32"),
+        "D": np.array([3] * 4, dtype="int32"),
+        "E": pd.Categorical(["test", "train", "test", "train"]),
+        "F": "foo",
+    }
+)
+
+print(df2)
+```
