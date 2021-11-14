@@ -32,4 +32,5 @@ df2 = pd.DataFrame(
 )
 
 print(df2)
+
 ```
